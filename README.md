@@ -29,23 +29,29 @@ Implement the following APIs.
 
 ### API 1
 
-#### Path: `/todos`
+#### Path: `/allProducts`
 
 #### Method: `GET`
 
 #### Description:
 
-Returns a list of all `todos` in the `todoList`.
+Returns a list of all `products`.
 
 #### Response
 
 ```
 [
     {
-        "id": 1,
-        "todo": "Watch Movie",
-        "priority": "LOW",
-        "status": "TO DO"
+        "pid": 101,
+        "name": "Samsung Galaxy S24",
+        "image": "https://th.bing.com/th/id/OIP.O6Q0e4UmP3pfw-ovYg4k_QAAAA?w=181&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "costPrice": 66000,
+        "quantity": 2,
+        "origin": "South Korea",
+        "profit": 9900.0,
+        "sellPrice": 75900,
+        "gst": 13662.0,
+        "amount": 151800
     },
    ...
 ]
@@ -53,21 +59,24 @@ Returns a list of all `todos` in the `todoList`.
 
 ### API 2
 
-#### Path: `/todos`
+#### Path: `/save`
 
 #### Method: `POST`
 
 #### Description:
 
-Creates a new todo in the `todoList`. The `id` is auto-incremented.
+Creates a new product in the `productList`.
 
 #### Request
 
 ```
 {
-    "todo": "Read Book",
-    "priority": "MEDIUM",
-    "status": "TO DO"
+    "pid" : 105,
+    "name" : "iPhone 16 pro",
+    "image" : "https://th.bing.com/th/id/OIP.WJgG0-v1zkdtxP0L07G_BgHaJP?w=133&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "costPrice" : 127000,
+    "quantity" : 1,
+    "origin" : "United State"
 }
 ```
 
@@ -75,50 +84,62 @@ Creates a new todo in the `todoList`. The `id` is auto-incremented.
 
 ```
 {
-    "id": 6,
-    "todo": "Read Book",
-    "priority": "MEDIUM",
-    "status": "TO DO"
+    "pid": 105,
+    "name": "iPhone 16 pro",
+    "image": "https://th.bing.com/th/id/OIP.WJgG0-v1zkdtxP0L07G_BgHaJP?w=133&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "costPrice": 127000,
+    "quantity": 1,
+    "origin": "United State",
+    "profit": 19050.0,
+    "sellPrice": 146050,
+    "gst": 26289.0,
+    "amount": 172339
 }
 ```
 
 ### API 3
 
-#### Path: `/todos/{id}`
+#### Path: `/product/{pid}`
 
 #### Method: `GET`
 
-#### Description:
-
-Returns a todo based on the `id`. If the given `id` is not found in the `todoList`, raise `ResponseStatusException` with `HttpStatus.NOT_FOUND`.
+#### Description: 
+ 
+Returns a product based on the `id`. 
 
 
 #### Success Response
 
 ```
 {
-    "id": 3,
-    "todo": "Buy Groceries",
-    "priority": "MEDIUM",
-    "status": "TO DO"
+    "pid": 103,
+    "name": "xiaomi 14 ultra ",
+    "image": "https://th.bing.com/th/id/OIP.z0A1zlpsB6K9IMg3QhJCNwAAAA?w=163&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "costPrice": 100000,
+    "quantity": 1,
+    "origin": "China",
+    "profit": 15000.0,
+    "sellPrice": 115000,
+    "gst": 20700.0,
+    "amount": 135700
 }
 ```
 
 ### API 4
 
-#### Path: `/todos/{id}`
+#### Path: `/update/{pid}`
 
 #### Method: `PUT`
 
 #### Description:
 
-Updates the details of a todo in the `todoList` based on the `id`. If the given `id` is not found in the `todoList`, raise `ResponseStatusException` with `HttpStatus.NOT_FOUND`.
+Updates the existing details of a product in the `ProductList` based on the `id`. If Product doesn't exist then it gives response as Product Not Found with id : pid.
 
 #### Request
 
 ```
 {
-    "status": "DONE"
+   "quantity": 3,
 }
 ```
 
@@ -126,22 +147,36 @@ Updates the details of a todo in the `todoList` based on the `id`. If the given 
 
 ```
 {
-    "id": 3,
-    "todo": "Buy Groceries",
-    "priority": "MEDIUM",
-    "status": "DONE"
+    "pid": 103,
+    "name": "xiaomi 14 ultra ",
+    "image": "https://th.bing.com/th/id/OIP.z0A1zlpsB6K9IMg3QhJCNwAAAA?w=163&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "costPrice": 100000,
+    "quantity": 3,
+    "origin": "China",
+    "profit": 15000.001,
+    "sellPrice": 115000,
+    "gst": 20700.0,
+    "amount": 407100
 }
 ```
 
 ### API 5
 
-#### Path: `/todos/{id}`
+#### Path: `/delete/{pid}`
 
 #### Method: `DELETE`
 
 #### Description:
 
-Deletes a todo from the `todoList`  based on the `id`. If the given `id` is not found in the `todoList`, raise `ResponseStatusException` with `HttpStatus.NOT_FOUND`.
+Deletes a product from the `productList`  based on the `id`.
+
+#### Success Response
+
+```
+{
+   Product Deleted Successfully...
+}
+```
 
 
-**Do not modify the code in `TodoApplication.java`**
+**Do not modify the code in `ProductApplication.java`**

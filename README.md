@@ -135,7 +135,7 @@ Returns a product based on the `id`.
 
 #### Description:
 
-Updates the existing details of a product in the `ProductList` based on the `id`. If Product doesn't exist then it gives response as Product Not Found with id : pid.
+Updates the existing details of a product in the `ProductList` based on the `id`. If Product doesn't exist then it gives response as `Product Not Found with id : pid`.
 
 #### Request
 

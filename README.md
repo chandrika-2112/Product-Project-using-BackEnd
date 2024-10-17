@@ -25,7 +25,7 @@ Given files `ProductController.java`, `ProductRepository.java`, `ProductService.
 - `ProductRepository.java`: Create an `interface` containing required methods.
 - `ProductInterface.java`: Provides Abstract methods which should be implemented in Service class.
 - `ProductService.java`: Implements the Abstract Methods.
-- `TodoController.java`: Create the controller class to handle HTTP requests.  
+- `ProductController.java`: Create the controller class to handle HTTP requests.  
 
 Implement the following APIs.
 

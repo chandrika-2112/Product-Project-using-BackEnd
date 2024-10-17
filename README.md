@@ -1,4 +1,4 @@
-# Product Project using BackEnd
+# Product Management
 
 This project involves building a RESTful API for product management using `Java`, `Spring Boot`, `MySQL`, and `Postman` for testing. The API supports `CRUD` operations like retrieving, creating, updating, and deleting products.
  
